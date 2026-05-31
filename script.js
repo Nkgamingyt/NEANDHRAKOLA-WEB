@@ -1,33 +1,40 @@
-/* Volume */
+// =========================
+// MUSIC SYSTEM
+// =========================
+
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+
+// Load saved volume
 
 const savedVolume =
 localStorage.getItem("musicVolume") || 30;
 
-if(volumeSlider){
+if (volumeSlider) {
     volumeSlider.value = savedVolume;
 }
 
-music.volume = savedVolume / 100;
+if (music) {
+    music.volume = savedVolume / 100;
+}
 
-/* Play / Pause Button */
+// Play / Pause Button
 
-if(musicBtn){
+if (musicBtn) {
 
     musicBtn.textContent = "▶ Play Music";
 
     musicBtn.addEventListener("click", () => {
 
-        if(music.paused){
+        if (music.paused) {
 
-            music.play()
-            .then(() => {
+            music.play();
 
-                musicBtn.textContent =
-                "⏸ Pause Music";
+            musicBtn.textContent =
+            "⏸ Pause Music";
 
-            });
-
-        }else{
+        } else {
 
             music.pause();
 
@@ -40,9 +47,9 @@ if(musicBtn){
 
 }
 
-/* Volume Slider */
+// Volume Slider
 
-if(volumeSlider){
+if (volumeSlider) {
 
     volumeSlider.addEventListener("input", () => {
 
@@ -52,68 +59,59 @@ if(volumeSlider){
         music.volume = volume;
 
         localStorage.setItem(
-        "musicVolume",
-        volumeSlider.value
+            "musicVolume",
+            volumeSlider.value
         );
 
     });
 
 }
 
-});
+// =========================
+// PREMIUM BUTTON
+// =========================
 
-window.addEventListener("load", () => {
+function selectReason(reason) {
 
-music.play()
-.then(() => {
+    document.getElementById("reason").value = reason;
 
-musicBtn.textContent = "⏸ Music";
-
-})
-.catch(() => {
-
-musicBtn.textContent = "▶ Play Music";
-
-console.log("Browser blocked autoplay");
-
-});
-
-});
-
-function selectReason(reason){
-
-document.getElementById("reason").value = reason;
-
-document.getElementById("ticket")
-.scrollIntoView({
-behavior:"smooth"
-});
+    document.getElementById("ticket")
+    .scrollIntoView({
+        behavior: "smooth"
+    });
 
 }
 
-document.getElementById("ticketForm")
-.addEventListener("submit", async function(e){
+// =========================
+// TICKET SYSTEM
+// =========================
 
-e.preventDefault();
+const ticketForm =
+document.getElementById("ticketForm");
 
-const username =
-document.getElementById("username").value;
+if (ticketForm) {
 
-const reason =
-document.getElementById("reason").value;
+    ticketForm.addEventListener(
+    "submit",
+    async function(e) {
 
-const details =
-document.getElementById("details").value;
+        e.preventDefault();
 
-/*
-Replace WEBHOOK_URL below
-with your Discord Webhook
-*/
+        const username =
+        document.getElementById("username").value;
 
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1510729009753755790/sXY9qt6Fb36lzm1TZhp7s8hvLbFqHgtEekDOW4Z-_C_mC4Y7h_B09I6bVgGx-mMLdk_b";
+        const reason =
+        document.getElementById("reason").value;
 
-const data = {
-content:
+        const details =
+        document.getElementById("details").value;
+
+        const WEBHOOK_URL =
+        "PASTE_YOUR_WEBHOOK_HERE";
+
+        const data = {
+
+            content:
 `🎫 NEW TICKET
 
 👤 User: ${username}
@@ -126,45 +124,86 @@ ${details}
 🕒 Time:
 ${new Date().toLocaleString()}
 `
-};
 
-try{
+        };
 
-await fetch(
-WEBHOOK_URL,
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-}
-);
+        try {
 
-document.getElementById("status").innerHTML =
-"✅ Ticket Sent Successfully";
+            await fetch(
+                WEBHOOK_URL,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+                    body:
+                    JSON.stringify(data)
+                }
+            );
 
-}catch{
+            document.getElementById(
+            "status"
+            ).innerHTML =
+            "✅ Ticket Sent Successfully";
 
-document.getElementById("status").innerHTML =
-"❌ Webhook Error";
+        } catch {
 
-}
+            document.getElementById(
+            "status"
+            ).innerHTML =
+            "❌ Webhook Error";
 
-});
-
-const enterBtn = document.getElementById("enterBtn");
-const enterScreen = document.getElementById("enterScreen");
-const music = document.getElementById("bgMusic");
-
-if (enterBtn) {
-    enterBtn.addEventListener("click", () => {
-
-        music.play().catch(err => console.log(err));
-
-        if (enterScreen) {
-            enterScreen.style.display = "none";
         }
 
     });
+
+}
+
+// =========================
+// ENTER SCREEN
+// =========================
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const enterScreen =
+document.getElementById("enterScreen");
+
+if (enterBtn) {
+
+    enterBtn.addEventListener("click", () => {
+
+        if (music) {
+
+            music.play()
+            .then(() => {
+
+                if (musicBtn) {
+                    musicBtn.textContent =
+                    "⏸ Pause Music";
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        }
+
+        if (enterScreen) {
+
+            enterScreen.style.opacity = "0";
+
+            setTimeout(() => {
+
+                enterScreen.style.display =
+                "none";
+
+            }, 500);
+
+        }
+
+    });
+
 }
