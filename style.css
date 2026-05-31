@@ -232,24 +232,17 @@ margin-top:30px;
 }
 
 #enterScreen{
-position:fixed;
-top:0;
-left:0;
-width:100vw;
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(
-45deg,
-#fff8c9,
-#ffe4ef
-);
-
-z-index:999999;
-transition:.5s;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(45deg,#fff8c9,#ffe4ef);
+    z-index:999999;
+    transition:0.5s;
 }
 
 .enter-box{
