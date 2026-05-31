@@ -1,36 +1,15 @@
+// =========================
+// MUSIC SYSTEM
+// =========================
+
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const volumeSlider = document.getElementById("volumeSlider");
 
-const enterBtn = document.getElementById("enterBtn");
-const enterScreen = document.getElementById("enterScreen");
-
-/* ENTER SCREEN */
-
-if (enterBtn) {
-
-    enterBtn.addEventListener("click", () => {
-
-        if (music) {
-            music.play().catch(err => console.log(err));
-        }
-
-        enterScreen.style.opacity = "0";
-
-        setTimeout(() => {
-            enterScreen.style.display = "none";
-        }, 500);
-
-    });
-
-}
-
-/* MUSIC */
-
 if (music) {
 
     const savedVolume =
-        localStorage.getItem("musicVolume") || 30;
+    localStorage.getItem("musicVolume") || 30;
 
     music.volume = savedVolume / 100;
 
@@ -39,8 +18,6 @@ if (music) {
     }
 
 }
-
-/* PLAY PAUSE */
 
 if (musicBtn) {
 
@@ -51,14 +28,14 @@ if (musicBtn) {
             music.play();
 
             musicBtn.textContent =
-                "⏸ Pause Music";
+            "⏸ Pause Music";
 
         } else {
 
             music.pause();
 
             musicBtn.textContent =
-                "▶ Play Music";
+            "▶ Play Music";
 
         }
 
@@ -66,70 +43,134 @@ if (musicBtn) {
 
 }
 
-/* VOLUME */
-
 if (volumeSlider) {
 
     volumeSlider.addEventListener("input", () => {
 
         const volume =
-            volumeSlider.value / 100;
+        volumeSlider.value / 100;
 
         music.volume = volume;
 
         localStorage.setItem(
-            "musicVolume",
-            volumeSlider.value
+        "musicVolume",
+        volumeSlider.value
         );
 
     });
 
 }
 
-/* PREMIUM PLAN BUTTON */
+// =========================
+// ENTER SCREEN
+// =========================
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const enterScreen =
+document.getElementById("enterScreen");
+
+if (enterBtn) {
+
+    enterBtn.addEventListener("click", () => {
+
+        if (music) {
+
+            music.play()
+            .then(() => {
+
+                if (musicBtn) {
+                    musicBtn.textContent =
+                    "⏸ Pause Music";
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        }
+
+        if (enterScreen) {
+
+            enterScreen.style.opacity = "0";
+
+            setTimeout(() => {
+
+                enterScreen.style.display =
+                "none";
+
+            }, 500);
+
+        }
+
+    });
+
+}
+
+// =========================
+// PREMIUM PLAN BUTTONS
+// =========================
 
 function selectReason(reason) {
 
-    document.getElementById("reason").value =
-        reason;
+    const reasonSelect =
+    document.getElementById("reason");
 
-    document.getElementById("ticket")
-        .scrollIntoView({
+    if (reasonSelect) {
+
+        reasonSelect.value = reason;
+
+    }
+
+    const ticketSection =
+    document.getElementById("ticket");
+
+    if (ticketSection) {
+
+        ticketSection.scrollIntoView({
             behavior: "smooth"
         });
+
+    }
 
 }
 
 window.selectReason = selectReason;
 
-/* TICKET SYSTEM */
+// =========================
+// TICKET SYSTEM
+// =========================
 
 const ticketForm =
-    document.getElementById("ticketForm");
+document.getElementById("ticketForm");
 
 if (ticketForm) {
 
     ticketForm.addEventListener(
-        "submit",
-        async function (e) {
+    "submit",
+    async function(e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            const username =
-                document.getElementById("username").value;
+        const username =
+        document.getElementById("username").value;
 
-            const reason =
-                document.getElementById("reason").value;
+        const reason =
+        document.getElementById("reason").value;
 
-            const details =
-                document.getElementById("details").value;
+        const details =
+        document.getElementById("details").value;
 
-            const WEBHOOK_URL =
-                "PASTE_YOUR_WEBHOOK_HERE";
+        // PASTE YOUR WEBHOOK URL BELOW
 
-            const data = {
+        const WEBHOOK_URL =
+        "PASTE_YOUR_WEBHOOK_URL_HERE";
 
-                content:
+        const data = {
+
+            content:
 `🎫 NEW TICKET
 
 👤 User: ${username}
@@ -143,38 +184,64 @@ ${details}
 ${new Date().toLocaleString()}
 `
 
-            };
+        };
 
-            try {
+        try {
 
-                await fetch(
-                    WEBHOOK_URL,
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-                        body:
-                            JSON.stringify(data)
-                    }
-                );
+            await fetch(
+                WEBHOOK_URL,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+                    body:
+                    JSON.stringify(data)
+                }
+            );
 
-                document.getElementById(
-                    "status"
-                ).innerHTML =
-                    "✅ Ticket Sent Successfully";
+            document.getElementById(
+            "status"
+            ).innerHTML =
+            "✅ Ticket Sent Successfully";
 
-            } catch {
+            ticketForm.reset();
 
-                document.getElementById(
-                    "status"
-                ).innerHTML =
-                    "❌ Webhook Error";
+        } catch (error) {
 
-            }
+            document.getElementById(
+            "status"
+            ).innerHTML =
+            "❌ Failed To Send Ticket";
+
+            console.error(error);
 
         }
-    );
+
+    });
 
 }
+
+// =========================
+// NAVBAR SCROLL EFFECT
+// =========================
+
+window.addEventListener("scroll", () => {
+
+    const nav =
+    document.querySelector("nav");
+
+    if (!nav) return;
+
+    if (window.scrollY > 50) {
+
+        nav.classList.add("nav-scroll");
+
+    } else {
+
+        nav.classList.remove("nav-scroll");
+
+    }
+
+});
