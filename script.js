@@ -1,59 +1,21 @@
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
-const volumeSlider = document.getElementById("volumeSlider");
 
-const savedVolume =
-localStorage.getItem("musicVolume") || 30;
-
-volumeSlider.value = savedVolume;
-music.volume = savedVolume / 100;
-
-window.addEventListener("load", () => {
-
-    music.play()
-    .then(() => {
-        musicBtn.textContent = "⏸ Music";
-    })
-    .catch(() => {
-        musicBtn.textContent = "▶ Play Music";
-    });
-
-});
+let playing = false;
 
 musicBtn.addEventListener("click", () => {
 
-    if(music.paused){
-
-        music.play();
-
-        musicBtn.textContent =
-        "⏸ Music";
-
-    }else{
-
-        music.pause();
-
-        musicBtn.textContent =
-        "▶ Play Music";
-
-    }
+if(!playing){
+music.play();
+musicBtn.innerHTML = "⏸ Stop Music";
+playing = true;
+}else{
+music.pause();
+musicBtn.innerHTML = "🎵 Music";
+playing = false;
+}
 
 });
-
-volumeSlider.addEventListener("input", () => {
-
-    const volume =
-    volumeSlider.value / 100;
-
-    music.volume = volume;
-
-    localStorage.setItem(
-        "musicVolume",
-        volumeSlider.value
-    );
-
-});
-
 function selectReason(reason){
 
 document.getElementById("reason").value = reason;
