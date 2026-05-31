@@ -1,7 +1,7 @@
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 
-let playing = false;
+let playing = true;
 
 musicBtn.addEventListener("click", () => {
 
