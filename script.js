@@ -1,15 +1,26 @@
-document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", e => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-        const target = link.getAttribute("href");
+anchor.addEventListener("click", function(e){
 
-        if(target.startsWith("#")){
-            e.preventDefault();
+e.preventDefault();
 
-            document.querySelector(target)
-            .scrollIntoView({
-                behavior:"smooth"
-            });
-        }
-    });
+document.querySelector(this.getAttribute("href"))
+.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+window.addEventListener("scroll", () => {
+
+const nav = document.querySelector("nav");
+
+if(window.scrollY > 50){
+nav.style.background = "rgba(255,255,255,.85)";
+}else{
+nav.style.background = "rgba(255,255,255,.65)";
+}
+
 });
