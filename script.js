@@ -140,17 +140,22 @@ const enterBtn = document.getElementById("enterBtn");
 const enterScreen = document.getElementById("enterScreen");
 const music = document.getElementById("bgMusic");
 
-if (enterBtn) {
-    enterBtn.addEventListener("click", () => {
+if (enterBtn && enterScreen) {
 
-        music.play().catch(err => console.log(err));
+    enterBtn.onclick = function() {
 
+        // Play music
+        if (music) {
+            music.play().catch(() => {});
+        }
+
+        // Hide enter screen
         enterScreen.style.opacity = "0";
-        enterScreen.style.pointerEvents = "none";
 
         setTimeout(() => {
-            enterScreen.remove();
+            enterScreen.style.display = "none";
         }, 500);
 
-    });
+    };
+
 }
