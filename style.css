@@ -168,6 +168,41 @@ text-align:center;
 background:#fff4cb;
 }
 
+/* MUSIC PANEL */
+
+.music-panel{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+align-items:center;
+gap:10px;
+
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(12px);
+
+padding:12px 16px;
+border-radius:50px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+z-index:9999;
+}
+
+.music-panel button{
+border:none;
+background:#ff8fb6;
+color:white;
+padding:10px 18px;
+border-radius:999px;
+cursor:pointer;
+}
+
+#volumeSlider{
+width:120px;
+cursor:pointer;
+}
+
 #join{
 padding:120px 10%;
 text-align:center;
