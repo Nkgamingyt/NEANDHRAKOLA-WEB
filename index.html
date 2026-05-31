@@ -17,13 +17,18 @@
 <div class="stars"></div>
 
 <audio id="bgMusic" loop>
-<source src="music/melody.mp3" type="audio/mpeg">
+    <source src="music/melody.mp3" type="audio/mpeg">
 </audio>
 
-<nav>
+<div class="music-panel">
+    <button id="musicBtn">⏸ Music</button>
 
-<div class="logo-box">
-<img src="assets/logo.png" alt="">
+    <input
+        type="range"
+        id="volumeSlider"
+        min="0"
+        max="100"
+        value="30">
 </div>
 
 <ul>
