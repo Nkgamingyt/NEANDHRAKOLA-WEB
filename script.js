@@ -1,19 +1,66 @@
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
+const volumeSlider = document.getElementById("volumeSlider");
 
-let playing = true;
+/* Load saved volume */
+
+const savedVolume =
+localStorage.getItem("musicVolume") || 30;
+
+volumeSlider.value = savedVolume;
+music.volume = savedVolume / 100;
+
+/* Auto play attempt */
+
+window.addEventListener("load", () => {
+
+music.play()
+.then(() => {
+
+musicBtn.textContent = "⏸ Music";
+
+})
+.catch(() => {
+
+musicBtn.textContent = "▶ Play Music";
+
+console.log("Browser blocked autoplay");
+
+});
+
+});
+
+/* Play / Pause */
 
 musicBtn.addEventListener("click", () => {
 
-if(!playing){
+if(music.paused){
+
 music.play();
-musicBtn.innerHTML = "⏸ Stop Music";
-playing = true;
+musicBtn.textContent = "⏸ Music";
+
 }else{
+
 music.pause();
-musicBtn.innerHTML = "🎵 Music";
-playing = false;
+musicBtn.textContent = "▶ Play Music";
+
 }
+
+});
+
+/* Volume Slider */
+
+volumeSlider.addEventListener("input", () => {
+
+const volume =
+volumeSlider.value / 100;
+
+music.volume = volume;
+
+localStorage.setItem(
+"musicVolume",
+volumeSlider.value
+);
 
 });
 function selectReason(reason){
