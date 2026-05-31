@@ -136,26 +136,17 @@ document.getElementById("status").innerHTML =
 
 });
 
-const enterBtn = document.getElementById("enterBtn");
-const enterScreen = document.getElementById("enterScreen");
-const music = document.getElementById("bgMusic");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (enterBtn && enterScreen) {
+    const enterBtn = document.getElementById("enterBtn");
+    const enterScreen = document.getElementById("enterScreen");
 
-    enterBtn.onclick = function() {
+    if (!enterBtn || !enterScreen) return;
 
-        // Play music
-        if (music) {
-            music.play().catch(() => {});
-        }
+    enterBtn.addEventListener("click", () => {
 
-        // Hide enter screen
-        enterScreen.style.opacity = "0";
+        enterScreen.style.display = "none";
 
-        setTimeout(() => {
-            enterScreen.style.display = "none";
-        }, 500);
+    });
 
-    };
-
-}
+});
