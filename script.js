@@ -1,26 +1,92 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
-anchor.addEventListener("click", function(e){
+let playing = false;
 
-e.preventDefault();
+musicBtn.addEventListener("click", () => {
 
-document.querySelector(this.getAttribute("href"))
+if(!playing){
+music.play();
+musicBtn.innerHTML = "⏸ Stop Music";
+playing = true;
+}else{
+music.pause();
+musicBtn.innerHTML = "🎵 Music";
+playing = false;
+}
+
+});
+
+function selectReason(reason){
+
+document.getElementById("reason").value = reason;
+
+document.getElementById("ticket")
 .scrollIntoView({
 behavior:"smooth"
 });
 
-});
+}
 
-});
+document.getElementById("ticketForm")
+.addEventListener("submit", async function(e){
 
-window.addEventListener("scroll", () => {
+e.preventDefault();
 
-const nav = document.querySelector("nav");
+const username =
+document.getElementById("username").value;
 
-if(window.scrollY > 50){
-nav.style.background = "rgba(255,255,255,.85)";
-}else{
-nav.style.background = "rgba(255,255,255,.65)";
+const reason =
+document.getElementById("reason").value;
+
+const details =
+document.getElementById("details").value;
+
+/*
+Replace WEBHOOK_URL below
+with your Discord Webhook
+*/
+
+const WEBHOOK_URL =
+"PASTE_DISCORD_WEBHOOK_HERE";
+
+const data = {
+content:
+`🎫 NEW TICKET
+
+👤 User: ${username}
+
+📌 Reason: ${reason}
+
+📝 Details:
+${details}
+
+🕒 Time:
+${new Date().toLocaleString()}
+`
+};
+
+try{
+
+await fetch(
+WEBHOOK_URL,
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+}
+);
+
+document.getElementById("status").innerHTML =
+"✅ Ticket Sent Successfully";
+
+}catch{
+
+document.getElementById("status").innerHTML =
+"❌ Webhook Error";
+
 }
 
 });
