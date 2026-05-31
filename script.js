@@ -1,29 +1,48 @@
-// =========================
-// MUSIC SYSTEM
-// =========================
-
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const volumeSlider = document.getElementById("volumeSlider");
 
-// Load saved volume
+const enterBtn = document.getElementById("enterBtn");
+const enterScreen = document.getElementById("enterScreen");
 
-const savedVolume =
-localStorage.getItem("musicVolume") || 30;
+/* ENTER SCREEN */
 
-if (volumeSlider) {
-    volumeSlider.value = savedVolume;
+if (enterBtn) {
+
+    enterBtn.addEventListener("click", () => {
+
+        if (music) {
+            music.play().catch(err => console.log(err));
+        }
+
+        enterScreen.style.opacity = "0";
+
+        setTimeout(() => {
+            enterScreen.style.display = "none";
+        }, 500);
+
+    });
+
 }
+
+/* MUSIC */
 
 if (music) {
+
+    const savedVolume =
+        localStorage.getItem("musicVolume") || 30;
+
     music.volume = savedVolume / 100;
+
+    if (volumeSlider) {
+        volumeSlider.value = savedVolume;
+    }
+
 }
 
-// Play / Pause Button
+/* PLAY PAUSE */
 
 if (musicBtn) {
-
-    musicBtn.textContent = "▶ Play Music";
 
     musicBtn.addEventListener("click", () => {
 
@@ -32,14 +51,14 @@ if (musicBtn) {
             music.play();
 
             musicBtn.textContent =
-            "⏸ Pause Music";
+                "⏸ Pause Music";
 
         } else {
 
             music.pause();
 
             musicBtn.textContent =
-            "▶ Play Music";
+                "▶ Play Music";
 
         }
 
@@ -47,14 +66,14 @@ if (musicBtn) {
 
 }
 
-// Volume Slider
+/* VOLUME */
 
 if (volumeSlider) {
 
     volumeSlider.addEventListener("input", () => {
 
         const volume =
-        volumeSlider.value / 100;
+            volumeSlider.value / 100;
 
         music.volume = volume;
 
@@ -67,51 +86,50 @@ if (volumeSlider) {
 
 }
 
-// =========================
-// PREMIUM BUTTON
-// =========================
+/* PREMIUM PLAN BUTTON */
 
 function selectReason(reason) {
 
-    document.getElementById("reason").value = reason;
+    document.getElementById("reason").value =
+        reason;
 
     document.getElementById("ticket")
-    .scrollIntoView({
-        behavior: "smooth"
-    });
+        .scrollIntoView({
+            behavior: "smooth"
+        });
 
 }
 
-// =========================
-// TICKET SYSTEM
-// =========================
+window.selectReason = selectReason;
+
+/* TICKET SYSTEM */
 
 const ticketForm =
-document.getElementById("ticketForm");
+    document.getElementById("ticketForm");
 
 if (ticketForm) {
 
     ticketForm.addEventListener(
-    "submit",
-    async function(e) {
+        "submit",
+        async function (e) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const username =
-        document.getElementById("username").value;
+            const username =
+                document.getElementById("username").value;
 
-        const reason =
-        document.getElementById("reason").value;
+            const reason =
+                document.getElementById("reason").value;
 
-        const details =
-        document.getElementById("details").value;
+            const details =
+                document.getElementById("details").value;
 
-        const WEBHOOK_URL =
-        "PASTE_YOUR_WEBHOOK_HERE";
+            const WEBHOOK_URL =
+                "PASTE_YOUR_WEBHOOK_HERE";
 
-        const data = {
+            const data = {
 
-            content:
+                content:
 `🎫 NEW TICKET
 
 👤 User: ${username}
@@ -125,85 +143,38 @@ ${details}
 ${new Date().toLocaleString()}
 `
 
-        };
+            };
 
-        try {
+            try {
 
-            await fetch(
-                WEBHOOK_URL,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type":
-                        "application/json"
-                    },
-                    body:
-                    JSON.stringify(data)
-                }
-            );
+                await fetch(
+                    WEBHOOK_URL,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+                        body:
+                            JSON.stringify(data)
+                    }
+                );
 
-            document.getElementById(
-            "status"
-            ).innerHTML =
-            "✅ Ticket Sent Successfully";
+                document.getElementById(
+                    "status"
+                ).innerHTML =
+                    "✅ Ticket Sent Successfully";
 
-        } catch {
+            } catch {
 
-            document.getElementById(
-            "status"
-            ).innerHTML =
-            "❌ Webhook Error";
+                document.getElementById(
+                    "status"
+                ).innerHTML =
+                    "❌ Webhook Error";
 
-        }
-
-    });
-
-}
-
-// =========================
-// ENTER SCREEN
-// =========================
-
-const enterBtn =
-document.getElementById("enterBtn");
-
-const enterScreen =
-document.getElementById("enterScreen");
-
-if (enterBtn) {
-
-    enterBtn.addEventListener("click", () => {
-
-        if (music) {
-
-            music.play()
-            .then(() => {
-
-                if (musicBtn) {
-                    musicBtn.textContent =
-                    "⏸ Pause Music";
-                }
-
-            })
-            .catch(err => {
-                console.log(err);
-            });
+            }
 
         }
-
-        if (enterScreen) {
-
-            enterScreen.style.opacity = "0";
-
-            setTimeout(() => {
-
-                enterScreen.style.display =
-                "none";
-
-            }, 500);
-
-        }
-
-    });
+    );
 
 }
