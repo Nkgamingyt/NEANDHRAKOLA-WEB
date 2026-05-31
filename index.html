@@ -1,207 +1,363 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NEANDHRAKOLA 🍌</title>
+<title>NEANDHRAKOLA 🍌 Community</title>
 
 <link rel="icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
 
+<!-- ENTER SCREEN -->
+
 <div id="enterScreen">
-    <div class="enter-box">
 
-        <img src="assets/logo.png" class="enter-logo">
+```
+<div class="enter-box">
 
-        <h1>🍌 NEANDHRAKOLA</h1>
+    <img
+    src="assets/logo.png"
+    alt="NEANDHRAKOLA"
+    class="enter-logo">
 
-        <p>Click below to enter the community</p>
+    <h1>🍌 NEANDHRAKOLA</h1>
 
-<button
-id="enterBtn"
-onclick="document.getElementById('enterScreen').style.display='none';">
-Enter Community ✨
-</button>
+    <p>
+        Welcome to our cozy Discord community.
+    </p>
 
-    </div>
+    <button id="enterBtn">
+        Enter Community ✨
+    </button>
+
 </div>
+```
+
+</div>
+
+<!-- BACKGROUND -->
 
 <div class="stars"></div>
 
-<audio id="bgMusic" autoplay loop>
-    <source src="music/melody.mp3" type="audio/mpeg">
-<body>
+<!-- MUSIC -->
 
 <audio id="bgMusic" loop>
     <source src="music/melody.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-panel">
-    <button id="musicBtn">▶ Play Music</button>
+<!-- MUSIC CONTROL -->
 
-    <input
-        type="range"
-        id="volumeSlider"
-        min="0"
-        max="100"
-        value="30">
+<div class="music-panel">
+
+```
+<button id="musicBtn">
+    ▶ Play Music
+</button>
+
+<input
+type="range"
+id="volumeSlider"
+min="0"
+max="100"
+value="30">
+```
+
 </div>
+
+<!-- NAVBAR -->
+
 <nav>
 
+```
 <div class="logo-box">
-<img src="assets/logo.png" alt="">
+
+    <img
+    src="assets/logo.png"
+    alt="Logo">
+
 </div>
 
 <ul>
-<li><a href="#about">About</a></li>
-<li><a href="#premium">Premium</a></li>
-<li><a href="#ticket">Tickets</a></li>
-<li><a href="#join">Join</a></li>
+
+    <li>
+        <a href="#about">About</a>
+    </li>
+
+    <li>
+        <a href="#premium">Premium</a>
+    </li>
+
+    <li>
+        <a href="#ticket">Tickets</a>
+    </li>
+
+    <li>
+        <a href="#join">Join</a>
+    </li>
+
 </ul>
+```
 
 </nav>
 
+<!-- HERO -->
+
 <header>
 
-<img src="assets/mascot.png" class="mascot">
+```
+<img
+src="assets/mascot.png"
+alt="Mascot"
+class="mascot">
 
 <div class="badge">
-🍌 Cozy Discord Community
+    🍌 Cozy Discord Community
 </div>
 
 <h1>
-Welcome to
-<span>NEANDHRAKOLA</span>
+
+    Welcome to
+
+    <span>
+        NEANDHRAKOLA
+    </span>
+
 </h1>
 
 <p>
-A cozy place filled with cute vibes,
-friendships, gaming and fun memories.
+
+    A cozy place filled with cute vibes,
+    friendships, gaming, events and
+    unforgettable memories.
+
 </p>
 
 <div class="hero-buttons">
 
-<a href="https://discord.gg/WRctb8aQkx" target="_blank" class="btn">
-Join Server
-</a>
+    <a
+    href="https://discord.gg/WRctb8aQkx"
+    target="_blank"
+    class="btn">
 
-<button id="musicBtn" class="btn">
-🎵 Music
-</button>
+        Join Server
+
+    </a>
+
+    <a
+    href="#premium"
+    class="btn secondary">
+
+        Premium Plans
+
+    </a>
 
 </div>
+```
 
 </header>
 
+<!-- ABOUT -->
+
 <section id="about">
 
-<div class="about-container">
+```
+<div class="section-box">
 
-<section class="about">
-    <div class="about-container">
-        <h2>🌸 About Us</h2>
+    <h2>🌸 About Us</h2>
 
-        <p>
-            NEANDHRAKOLA is a cozy and friendly community
-            focused on gaming, chatting and creating memories.
-        </p>
-    </div>
+    <p>
+
+        NEANDHRAKOLA is a warm and friendly
+        Discord community where people can
+        make friends, game together, share
+        memories and enjoy a relaxing atmosphere.
+
+    </p>
+
+</div>
+```
+
 </section>
+
+<!-- PREMIUM -->
 
 <section id="premium">
 
+```
 <h2>💎 Premium Plans</h2>
 
 <div class="plans">
 
-<div class="plan">
-<h3>Starter</h3>
-<h1>₹99</h1>
-<button onclick="selectReason('Premium Purchase - Starter')">
-Buy Now
-</button>
-</div>
+    <div class="plan">
 
-<div class="plan featured">
-<h3>Premium</h3>
-<h1>₹199</h1>
-<button onclick="selectReason('Premium Purchase - Premium')">
-Buy Now
-</button>
-</div>
+        <h3>Starter</h3>
 
-<div class="plan">
-<h3>Elite</h3>
-<h1>₹499</h1>
-<button onclick="selectReason('Premium Purchase - Elite')">
-Buy Now
-</button>
-</div>
+        <div class="price">
+            ₹99
+        </div>
+
+        <ul>
+
+            <li>Premium Role</li>
+            <li>Exclusive Chat</li>
+            <li>Priority Support</li>
+
+        </ul>
+
+        <button
+        onclick="selectReason('Premium Purchase - Starter')">
+
+            Buy Now
+
+        </button>
+
+    </div>
+
+    <div class="plan featured">
+
+        <h3>Premium</h3>
+
+        <div class="price">
+            ₹199
+        </div>
+
+        <ul>
+
+            <li>Premium Role</li>
+            <li>Special Access</li>
+            <li>Priority Tickets</li>
+            <li>Exclusive Events</li>
+
+        </ul>
+
+        <button
+        onclick="selectReason('Premium Purchase - Premium')">
+
+            Buy Now
+
+        </button>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>Elite</h3>
+
+        <div class="price">
+            ₹499
+        </div>
+
+        <ul>
+
+            <li>Elite Role</li>
+            <li>VIP Access</li>
+            <li>Priority Support</li>
+            <li>Custom Benefits</li>
+
+        </ul>
+
+        <button
+        onclick="selectReason('Premium Purchase - Elite')">
+
+            Buy Now
+
+        </button>
+
+    </div>
 
 </div>
+```
 
 </section>
 
+<!-- TICKET -->
+
 <section id="ticket">
 
+```
 <h2>🎫 Create Ticket</h2>
 
 <form id="ticketForm">
 
-<input type="text"
-id="username"
-placeholder="Discord Username"
-required>
+    <input
+    type="text"
+    id="username"
+    placeholder="Discord Username"
+    required>
 
-<select id="reason">
+    <select id="reason">
 
-<option>Premium Purchase</option>
-<option>Support</option>
-<option>Report Member</option>
-<option>Partnership</option>
-<option>Appeal</option>
-<option>Bug Report</option>
+        <option>Premium Purchase</option>
+        <option>Support</option>
+        <option>Report Member</option>
+        <option>Partnership</option>
+        <option>Appeal</option>
+        <option>Bug Report</option>
 
-</select>
+    </select>
 
-<textarea
-id="details"
-placeholder="Explain your issue..."
-required></textarea>
+    <textarea
+    id="details"
+    placeholder="Explain your issue..."
+    required></textarea>
 
-<button type="submit">
-Create Ticket
-</button>
+    <button type="submit">
+
+        Create Ticket
+
+    </button>
 
 </form>
 
 <div id="status"></div>
+```
 
 </section>
+
+<!-- JOIN -->
 
 <section id="join">
 
-    <h2>💖 Join Our Family</h2>
+```
+<h2>💖 Join Our Family</h2>
 
-    <p>Become part of the NEANDHRAKOLA community today.</p>
+<p>
 
-    <a href="https://discord.gg/WRctb8aQkx"
-       target="_blank"
-       class="btn">
-       Join Discord
-    </a>
+    Become part of the
+    NEANDHRAKOLA community today.
+
+</p>
+
+<a
+href="https://discord.gg/WRctb8aQkx"
+target="_blank"
+class="btn">
+
+    Join Discord
+
+</a>
+```
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
+```
 Made with 💛 by NEANDHRAKOLA
+```
 
 </footer>
 
