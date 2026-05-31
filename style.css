@@ -187,3 +187,27 @@ width:180px;
 }
 
 }
+
+#about{
+padding:100px 10%;
+}
+
+.about-container{
+max-width:900px;
+margin:0 auto;
+text-align:center;
+}
+
+.about-container h2{
+display:block;
+margin-bottom:25px;
+font-size:2.5rem;
+color:#555;
+}
+
+.about-container p{
+max-width:700px;
+margin:0 auto;
+line-height:1.8;
+font-size:1.1rem;
+}
