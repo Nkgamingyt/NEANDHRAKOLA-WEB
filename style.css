@@ -1,311 +1,100 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Quicksand',sans-serif;
-}
+/* ENTER SCREEN */
 
-html{
-scroll-behavior:smooth;
-}
-
-body{
+#enterScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:linear-gradient(
 45deg,
 #fff8c9,
-#ffe4ef,
-#fff8c9
+#ffe4ef
 );
-background-size:400% 400%;
-animation:bgMove 15s infinite;
-color:#555;
-}
-
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-background:url("assets/bg-stars.png");
-background-size:cover;
-opacity:.15;
-z-index:-1;
-}
-
-nav{
 display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:rgba(255,255,255,.6);
-backdrop-filter:blur(10px);
-position:fixed;
-width:100%;
-top:0;
-}
-
-.logo-box img{
-height:90px;
-}
-
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-nav a{
-text-decoration:none;
-color:#444;
-font-weight:700;
-}
-
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+z-index:9999;
+transition:.5s;
+}
+
+.enter-box{
 text-align:center;
-padding-top:100px;
+padding:30px;
 }
 
-.mascot{
-width:250px;
-animation:float 4s infinite;
+.enter-logo{
+width:180px;
+margin-bottom:20px;
 }
 
-@keyframes float{
-50%{
-transform:translateY(-15px);
-}
-}
-
-.badge{
-background:white;
-padding:10px 20px;
-border-radius:999px;
-margin-top:15px;
-}
-
-h1{
-font-size:4rem;
-}
-
-h1 span{
-color:#ff77a9;
-}
-
-p{
-max-width:700px;
-line-height:1.7;
-}
-
-.btn,
-button{
-border:none;
+#enterBtn{
 background:#ff8fb6;
-color:white;
-padding:15px 25px;
-border-radius:50px;
-cursor:pointer;
-text-decoration:none;
-margin:10px;
-}
-
-section{
-padding:100px 10%;
-text-align:center;
-}
-
-.plans{
-display:flex;
-gap:25px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.plan{
-background:white;
-padding:30px;
-border-radius:25px;
-width:280px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-.featured{
-transform:scale(1.05);
-}
-
-form{
-max-width:700px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,
-select,
-textarea{
-padding:15px;
 border:none;
-border-radius:15px;
-}
-
-textarea{
-height:150px;
-}
-
-footer{
-padding:30px;
-text-align:center;
-background:#fff4cb;
+padding:15px 35px;
+border-radius:50px;
+color:white;
+cursor:pointer;
+font-size:16px;
+margin-top:20px;
 }
 
 /* MUSIC PANEL */
 
 .music-panel{
 position:fixed;
-bottom:20px;
 right:20px;
+bottom:20px;
+background:white;
+padding:10px 15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 display:flex;
 align-items:center;
 gap:10px;
-
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(12px);
-
-padding:12px 16px;
-border-radius:50px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-z-index:9999;
-}
-
-.music-panel button{
-border:none;
-background:#ff8fb6;
-color:white;
-padding:10px 18px;
-border-radius:999px;
-cursor:pointer;
+z-index:999;
 }
 
 #volumeSlider{
 width:120px;
-cursor:pointer;
 }
 
-#join{
-padding:120px 10%;
-text-align:center;
-}
-
-#join h2{
-margin-bottom:20px;
-font-size:3rem;
-}
-
-#join p{
-margin-top:0;
-margin-bottom:35px;
-max-width:700px;
-margin-left:auto;
-margin-right:auto;
-line-height:1.8;
-}
-
-#join .btn{
-display:inline-block;
-margin:0;
-}
-
-.join-btn-wrapper{
-margin-top:30px;
-}
-
-#enterScreen{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(45deg,#fff8c9,#ffe4ef);
-    z-index:999999;
-    transition:0.5s;
-}
-
-.enter-box{
-text-align:center;
-max-width:500px;
-width:90%;
-padding:40px;
-}
-
-.enter-logo{
-width:140px;
-margin-bottom:20px;
-}
-
-.enter-box h1{
-font-size:3rem;
-margin-bottom:15px;
-}
-
-.enter-box p{
-margin-bottom:25px;
-}
+/* MOBILE */
 
 @media(max-width:768px){
 
-h1{
-font-size:2.5rem;
-}
-
 nav{
 flex-direction:column;
+padding:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
 }
 
 .logo-box img{
 height:70px;
 }
 
+h1{
+font-size:2.2rem;
+}
+
 .mascot{
 width:180px;
 }
 
+.music-panel{
+left:10px;
+right:10px;
+bottom:10px;
+width:auto;
 }
 
-#about{
-padding:100px 10%;
+#volumeSlider{
+width:100px;
 }
 
-.about-container{
-max-width:900px;
-margin:0 auto;
-text-align:center;
-}
-
-.about-container h2{
-display:block;
-margin-bottom:25px;
-font-size:2.5rem;
-color:#555;
-}
-
-.about-container p{
-max-width:700px;
-margin:0 auto;
-line-height:1.8;
-font-size:1.1rem;
 }
