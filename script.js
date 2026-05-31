@@ -61,6 +61,25 @@ if(volumeSlider){
 }
 
 });
+
+window.addEventListener("load", () => {
+
+music.play()
+.then(() => {
+
+musicBtn.textContent = "⏸ Music";
+
+})
+.catch(() => {
+
+musicBtn.textContent = "▶ Play Music";
+
+console.log("Browser blocked autoplay");
+
+});
+
+});
+
 function selectReason(reason){
 
 document.getElementById("reason").value = reason;
