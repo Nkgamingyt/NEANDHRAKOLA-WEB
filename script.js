@@ -48,7 +48,7 @@ with your Discord Webhook
 */
 
 const WEBHOOK_URL =
-"PASTE_DISCORD_WEBHOOK_HERE";
+"https://discord.com/api/webhooks/1510729009753755790/sXY9qt6Fb36lzm1TZhp7s8hvLbFqHgtEekDOW4Z-_C_mC4Y7h_B09I6bVgGx-mMLdk_b";
 
 const data = {
 content:
