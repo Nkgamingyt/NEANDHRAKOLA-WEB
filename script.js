@@ -135,3 +135,30 @@ document.getElementById("status").innerHTML =
 }
 
 });
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const enterScreen =
+document.getElementById("enterScreen");
+
+const music =
+document.getElementById("bgMusic");
+
+enterBtn.addEventListener("click", () => {
+
+music.volume = 0.3;
+
+music.play().catch(err => {
+console.log(err);
+});
+
+enterScreen.style.opacity = "0";
+
+setTimeout(() => {
+
+enterScreen.style.display = "none";
+
+},500);
+
+});
