@@ -1,66 +1,64 @@
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-const volumeSlider = document.getElementById("volumeSlider");
-
-/* Load saved volume */
+/* Volume */
 
 const savedVolume =
 localStorage.getItem("musicVolume") || 30;
 
-volumeSlider.value = savedVolume;
+if(volumeSlider){
+    volumeSlider.value = savedVolume;
+}
+
 music.volume = savedVolume / 100;
 
-/* Auto play attempt */
+/* Play / Pause Button */
 
-window.addEventListener("load", () => {
+if(musicBtn){
 
-music.play()
-.then(() => {
+    musicBtn.textContent = "▶ Play Music";
 
-musicBtn.textContent = "⏸ Music";
+    musicBtn.addEventListener("click", () => {
 
-})
-.catch(() => {
+        if(music.paused){
 
-musicBtn.textContent = "▶ Play Music";
+            music.play()
+            .then(() => {
 
-console.log("Browser blocked autoplay");
+                musicBtn.textContent =
+                "⏸ Pause Music";
 
-});
+            });
 
-});
+        }else{
 
-/* Play / Pause */
+            music.pause();
 
-musicBtn.addEventListener("click", () => {
+            musicBtn.textContent =
+            "▶ Play Music";
 
-if(music.paused){
+        }
 
-music.play();
-musicBtn.textContent = "⏸ Music";
-
-}else{
-
-music.pause();
-musicBtn.textContent = "▶ Play Music";
+    });
 
 }
 
-});
-
 /* Volume Slider */
 
-volumeSlider.addEventListener("input", () => {
+if(volumeSlider){
 
-const volume =
-volumeSlider.value / 100;
+    volumeSlider.addEventListener("input", () => {
 
-music.volume = volume;
+        const volume =
+        volumeSlider.value / 100;
 
-localStorage.setItem(
-"musicVolume",
-volumeSlider.value
-);
+        music.volume = volume;
+
+        localStorage.setItem(
+        "musicVolume",
+        volumeSlider.value
+        );
+
+    });
+
+}
 
 });
 function selectReason(reason){
