@@ -168,6 +168,30 @@ text-align:center;
 background:#fff4cb;
 }
 
+#join{
+padding:120px 10%;
+text-align:center;
+}
+
+#join h2{
+margin-bottom:20px;
+font-size:3rem;
+}
+
+#join p{
+margin-top:0;
+margin-bottom:35px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.8;
+}
+
+#join .btn{
+display:inline-block;
+margin:0;
+}
+
 @media(max-width:768px){
 
 h1{
