@@ -136,29 +136,21 @@ document.getElementById("status").innerHTML =
 
 });
 
-const enterBtn =
-document.getElementById("enterBtn");
+const enterBtn = document.getElementById("enterBtn");
+const enterScreen = document.getElementById("enterScreen");
+const music = document.getElementById("bgMusic");
 
-const enterScreen =
-document.getElementById("enterScreen");
+if (enterBtn) {
+    enterBtn.addEventListener("click", () => {
 
-const music =
-document.getElementById("bgMusic");
+        music.play().catch(err => console.log(err));
 
-enterBtn.addEventListener("click", () => {
+        enterScreen.style.opacity = "0";
+        enterScreen.style.pointerEvents = "none";
 
-music.volume = 0.3;
+        setTimeout(() => {
+            enterScreen.remove();
+        }, 500);
 
-music.play().catch(err => {
-console.log(err);
-});
-
-enterScreen.style.opacity = "0";
-
-setTimeout(() => {
-
-enterScreen.style.display = "none";
-
-},500);
-
-});
+    });
+}
