@@ -99,3 +99,23 @@ document.getElementById("status").innerHTML =
 }
 
 });
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const enterScreen =
+document.getElementById("enterScreen");
+
+enterBtn.addEventListener("click", () => {
+
+    music.play();
+
+    enterScreen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        enterScreen.style.display = "none";
+
+    },500);
+
+});
