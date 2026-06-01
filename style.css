@@ -241,6 +241,24 @@ padding:10px;
 width:90px;
 }
 
+.enter-box{
+   width:90%;
+  padding:30px;
+}
+
+.enter-logo{
+ width:140px;
+}
+
+.enter-box h1{
+font-size:2rem;
+}
+   
+#enterBtn{
+width:100%;
+padding:15px;
+} 
+
 }
 
 /* ENTER SCREEN */
@@ -257,27 +275,42 @@ z-index:99999;
 }
 
 .enter-box{
-background:white;
-padding:40px;
-border-radius:25px;
-text-align:center;
-width:90%;
-max-width:450px;
+    background:rgba(255,255,255,0.95);
+    padding:60px;
+    border-radius:30px;
+    text-align:center;
+    width:650px;
+    max-width:90%;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .enter-logo{
-width:180px;
-margin-bottom:20px;
+    width:220px;
+    height:auto;
+    margin-bottom:25px;
+}
+
+.enter-box h1{
+    font-size:4rem;
+    margin-bottom:25px;
+    color:#444;
+    font-weight:700;
 }
 
 #enterBtn{
-background:#ffd54f;
-color:#333;
-padding:15px 30px;
-border:none;
-border-radius:50px;
-font-weight:700;
-cursor:pointer;
+    background:#ffd54f;
+    color:#333;
+    border:none;
+    padding:18px 40px;
+    border-radius:50px;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#enterBtn:hover{
+    transform:scale(1.05);
 }
 
 /* MUSIC PANEL */
