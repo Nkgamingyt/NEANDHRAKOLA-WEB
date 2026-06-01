@@ -41,7 +41,7 @@ body::before{
 content:"";
 position:fixed;
 inset:0;
-background:rgba(0,0,0,0.15);
+background:rgb(255, 208, 0);
 z-index:-1;
 pointer-events:none;
 }
@@ -51,7 +51,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 8%;
-background:rgba(0,0,0,.15);
+background:rgb(255, 200, 0);
 backdrop-filter:blur(10px);
 position:fixed;
 width:100%;
@@ -145,7 +145,7 @@ background:white;
 padding:30px;
 border-radius:25px;
 width:280px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
+box-shadow:0 10px 20px rgb(255, 200, 0);
 }
 
 .featured{
@@ -266,19 +266,19 @@ inset:0;
 display:flex;
 justify-content:center;
 align-items:center;
-background:rgba(0,0,0,0.7);
+background:rgba(13, 255, 0, 0.7);
 backdrop-filter:blur(8px);
 z-index:99999;
 }
 
 .enter-box{
-    background:rgba(255,255,255,0.95);
+    background:rgba(255, 208, 0, 0.95);
     padding:60px;
     border-radius:30px;
     text-align:center;
     width:650px;
     max-width:90%;
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    box-shadow:0 20px 60px rgb(9, 255, 0);
 }
 
 .enter-logo{
@@ -324,11 +324,11 @@ gap:10px;
 
 padding:10px 15px;
 
-background:rgba(255,255,255,0.9);
+background:rgba(0, 0, 0, 0.9);
 backdrop-filter:blur(10px);
 
 border-radius:50px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+box-shadow:0 5px 20px rgb(255, 225, 0);
 }
 
 #volumeSlider{
@@ -348,12 +348,12 @@ flex-wrap:wrap;
 }
 
 .stat-card{
-background:rgba(0, 0, 0, 0.9);
+background:rgb(255, 208, 0);
 padding:25px;
 border-radius:20px;
 width:250px;
 backdrop-filter:blur(10px);
-box-shadow:0 10px 25px rgba(0, 0, 0, 0.1);
+box-shadow:0 10px 25px rgb(255, 187, 0);
 }
 
 .stat-card h3{
@@ -371,7 +371,7 @@ position:fixed;
 left:20px;
 bottom:20px;
 
-background:rgba(0, 0, 0, 0.9);
+background:rgb(255, 204, 0);
 backdrop-filter:blur(10px);
 
 padding:12px 15px;
