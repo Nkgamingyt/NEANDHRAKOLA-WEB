@@ -368,3 +368,43 @@ font-size:2rem;
 font-weight:700;
 color:#7fbf3f;
 }
+
+.discord-widget{
+position:fixed;
+left:20px;
+bottom:20px;
+
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(10px);
+
+padding:12px 15px;
+border-radius:18px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+z-index:9999;
+
+min-width:170px;
+}
+
+.discord-title{
+font-weight:700;
+margin-bottom:8px;
+color:#5865F2;
+}
+
+.discord-stat{
+font-size:.9rem;
+margin:4px 0;
+}
+
+@media(max-width:768px){
+
+.discord-widget{
+left:10px;
+bottom:80px;
+min-width:140px;
+font-size:.8rem;
+}
+
+}
