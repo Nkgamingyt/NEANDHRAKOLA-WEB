@@ -203,3 +203,16 @@ document.getElementById("memberCount").textContent =
 "Unavailable";
 
 });
+
+/* Discord Live Count */
+
+const memberCount =
+document.getElementById("memberCount");
+
+const onlineCount =
+document.getElementById("onlineCount");
+
+/* Replace with your real values */
+
+memberCount.textContent = "147";
+onlineCount.textContent = "112";
