@@ -1,44 +1,120 @@
+// =========================
+// MUSIC SYSTEM
+// =========================
+
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const volumeSlider = document.getElementById("volumeSlider");
 
-music.volume = 0.5;
+if (music) {
+    music.volume = 0.5;
+}
 
-musicBtn.addEventListener("click", () => {
+if (musicBtn) {
 
-    if(music.paused){
+    musicBtn.addEventListener("click", () => {
 
-        music.play();
-        musicBtn.textContent = "⏸ Music";
+        if (music.paused) {
 
-    }else{
+            music.play();
 
-        music.pause();
-        musicBtn.textContent = "🎵 Music";
+            musicBtn.textContent =
+            "⏸ Music";
 
-    }
+        } else {
 
-});
+            music.pause();
 
-volumeSlider.addEventListener("input", () => {
+            musicBtn.textContent =
+            "🎵 Music";
 
-    music.volume = volumeSlider.value / 100;
+        }
 
-});
-
-function selectReason(reason){
-
-document.getElementById("reason").value = reason;
-
-document.getElementById("ticket")
-.scrollIntoView({
-behavior:"smooth"
-});
+    });
 
 }
 
-document.getElementById("ticketForm")
-.addEventListener("submit", async function(e){
+if (volumeSlider) {
+
+    volumeSlider.addEventListener("input", () => {
+
+        music.volume =
+        volumeSlider.value / 100;
+
+    });
+
+}
+
+
+// =========================
+// ENTER SCREEN
+// =========================
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const enterScreen =
+document.getElementById("enterScreen");
+
+if (enterBtn) {
+
+    enterBtn.addEventListener("click", () => {
+
+        if (music) {
+
+            music.play()
+            .catch(() => {});
+
+            if (musicBtn) {
+                musicBtn.textContent =
+                "⏸ Music";
+            }
+
+        }
+
+        enterScreen.style.opacity = "0";
+
+        setTimeout(() => {
+
+            enterScreen.style.display =
+            "none";
+
+        }, 500);
+
+    });
+
+}
+
+
+// =========================
+// PREMIUM PLAN AUTO SELECT
+// =========================
+
+function selectReason(reason){
+
+    document.getElementById("reason").value =
+    reason;
+
+    document.getElementById("ticket")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+// =========================
+// TICKET SYSTEM
+// =========================
+
+const ticketForm =
+document.getElementById("ticketForm");
+
+if(ticketForm){
+
+ticketForm.addEventListener(
+"submit",
+async function(e){
 
 e.preventDefault();
 
@@ -51,16 +127,13 @@ document.getElementById("reason").value;
 const details =
 document.getElementById("details").value;
 
-/*
-Replace WEBHOOK_URL below
-with your Discord Webhook
-*/
-
 const WEBHOOK_URL =
-"https://discord.com/api/webhooks/1510729009753755790/sXY9qt6Fb36lzm1TZhp7s8hvLbFqHgtEekDOW4Z-_C_mC4Y7h_B09I6bVgGx-mMLdk_b";
+"YOUR_WEBHOOK_URL_HERE";
 
 const data = {
+
 content:
+
 `🎫 NEW TICKET
 
 👤 User: ${username}
@@ -71,8 +144,8 @@ content:
 ${details}
 
 🕒 Time:
-${new Date().toLocaleString()}
-`
+${new Date().toLocaleString()}`
+
 };
 
 try{
@@ -88,54 +161,20 @@ body:JSON.stringify(data)
 }
 );
 
-document.getElementById("status").innerHTML =
+document.getElementById("status")
+.innerHTML =
 "✅ Ticket Sent Successfully";
+
+ticketForm.reset();
 
 }catch{
 
-document.getElementById("status").innerHTML =
+document.getElementById("status")
+.innerHTML =
 "❌ Webhook Error";
 
 }
 
 });
-
-const enterBtn =
-document.getElementById("enterBtn");
-
-const enterScreen =
-document.getElementById("enterScreen");
-
-enterBtn.addEventListener("click", () => {
-
-    music.play();
-
-    enterScreen.style.opacity = "0";
-
-    setTimeout(() => {
-
-        enterScreen.style.display = "none";
-
-    },500);
-
-});
-
-const enterBtn = document.getElementById("enterBtn");
-const enterScreen = document.getElementById("enterScreen");
-const music = document.getElementById("bgMusic");
-
-if (enterBtn) {
-
-    enterBtn.addEventListener("click", () => {
-
-        if(music){
-            music.play().catch(() => {});
-        }
-
-        if(enterScreen){
-            enterScreen.style.display = "none";
-        }
-
-    });
 
 }
