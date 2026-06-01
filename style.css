@@ -243,10 +243,49 @@ width:90px;
 
 }
 
+/* ENTER SCREEN */
+
+#enterScreen{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(8px);
+z-index:99999;
+}
+
+.enter-box{
+background:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+width:90%;
+max-width:450px;
+}
+
+.enter-logo{
+width:180px;
+margin-bottom:20px;
+}
+
+#enterBtn{
+background:#ffd54f;
+color:#333;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* MUSIC PANEL */
+
 .music-panel{
 position:fixed;
-bottom:20px;
 right:20px;
+bottom:20px;
 z-index:9999;
 
 display:flex;
@@ -255,76 +294,13 @@ gap:10px;
 
 padding:10px 15px;
 
-background:rgba(255,255,255,.85);
+background:rgba(255,255,255,0.9);
 backdrop-filter:blur(10px);
 
 border-radius:50px;
 box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.music-panel button{
-background:#ffd54f;
-color:#333;
-border:none;
-padding:10px 15px;
-border-radius:50px;
-cursor:pointer;
-}
-
-.music-panel input{
+#volumeSlider{
 width:120px;
-cursor:pointer;
-}
-
-#enterScreen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(8px);
-
-z-index:99999;
-}
-
-.enter-box{
-text-align:center;
-background:white;
-padding:40px;
-border-radius:25px;
-max-width:450px;
-width:90%;
-}
-
-.enter-logo{
-width:180px;
-margin-bottom:20px;
-}
-
-.enter-box h1{
-font-size:2.5rem;
-margin-bottom:15px;
-color:#444;
-}
-
-.enter-box p{
-margin-bottom:20px;
-color:#666;
-}
-
-#enterBtn{
-background:#ffd54f;
-color:#333;
-border:none;
-padding:15px 30px;
-border-radius:50px;
-font-size:1rem;
-font-weight:700;
-cursor:pointer;
 }
