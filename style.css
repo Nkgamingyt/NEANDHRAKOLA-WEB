@@ -113,7 +113,12 @@ color:#fff064;
 p{
 max-width:700px;
 line-height:1.7;
+color:##fff064;
+}
+
+.about-text{
 color:#fff064;
+font-size:1.1rem;
 }
 
 .btn,
@@ -348,12 +353,12 @@ flex-wrap:wrap;
 }
 
 .stat-card{
-background:rgba(0, 0, 0, 0.9);
+background:rgba(255,255,255,0.9);
 padding:25px;
 border-radius:20px;
 width:250px;
 backdrop-filter:blur(10px);
-box-shadow:0 10px 25px rgba(0, 0, 0, 0.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
 
 .stat-card h3{
@@ -371,13 +376,13 @@ position:fixed;
 left:20px;
 bottom:20px;
 
-background:rgba(0, 0, 0, 0.9);
+background:rgba(255,255,255,.9);
 backdrop-filter:blur(10px);
 
 padding:12px 15px;
 border-radius:18px;
 
-box-shadow:0 5px 20px hsl(51, 100%, 50%);
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 
 z-index:9999;
 
@@ -402,7 +407,6 @@ left:10px;
 bottom:80px;
 min-width:140px;
 font-size:.8rem;
-color:#000000;
 }
 
 }
