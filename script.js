@@ -178,3 +178,28 @@ document.getElementById("status")
 });
 
 }
+
+const SERVER_ID = "1471873618840387750";
+
+fetch(
+`https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+)
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("onlineCount").textContent =
+data.presence_count || "0";
+
+document.getElementById("memberCount").textContent =
+data.members ? data.members.length : "N/A";
+
+})
+.catch(() => {
+
+document.getElementById("onlineCount").textContent =
+"Unavailable";
+
+document.getElementById("memberCount").textContent =
+"Unavailable";
+
+});
