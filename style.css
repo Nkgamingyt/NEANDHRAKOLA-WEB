@@ -14,7 +14,7 @@ background:linear-gradient(
 45deg,
 #fff064,
 #fff064,
-#75ff72
+#fff064
 );
 background-size:400% 400%;
 animation:bgMove 15s infinite;
@@ -70,7 +70,7 @@ list-style:none;
 
 nav a{
 text-decoration:none;
-color:#444;
+color:#fff064;
 font-weight:700;
 }
 
