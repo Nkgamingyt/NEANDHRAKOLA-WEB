@@ -1,19 +1,28 @@
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
+const volumeSlider = document.getElementById("volumeSlider");
 
-let playing = false;
+music.volume = 0.5;
 
 musicBtn.addEventListener("click", () => {
 
-if(!playing){
-music.play();
-musicBtn.innerHTML = "⏸ Stop Music";
-playing = true;
-}else{
-music.pause();
-musicBtn.innerHTML = "🎵 Music";
-playing = false;
-}
+    if(music.paused){
+
+        music.play();
+        musicBtn.textContent = "⏸ Music";
+
+    }else{
+
+        music.pause();
+        musicBtn.textContent = "🎵 Music";
+
+    }
+
+});
+
+volumeSlider.addEventListener("input", () => {
+
+    music.volume = volumeSlider.value / 100;
 
 });
 
