@@ -224,3 +224,36 @@ width:180px;
 }
 
 }
+
+.music-panel{
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:9999;
+
+display:flex;
+align-items:center;
+gap:10px;
+
+padding:10px 15px;
+
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(10px);
+
+border-radius:50px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.music-panel button{
+background:#ffd54f;
+color:#333;
+border:none;
+padding:10px 15px;
+border-radius:50px;
+cursor:pointer;
+}
+
+.music-panel input{
+width:120px;
+cursor:pointer;
+}
