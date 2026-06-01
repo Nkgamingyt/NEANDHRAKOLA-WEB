@@ -119,3 +119,23 @@ enterBtn.addEventListener("click", () => {
     },500);
 
 });
+
+const enterBtn = document.getElementById("enterBtn");
+const enterScreen = document.getElementById("enterScreen");
+const music = document.getElementById("bgMusic");
+
+if (enterBtn) {
+
+    enterBtn.addEventListener("click", () => {
+
+        if(music){
+            music.play().catch(() => {});
+        }
+
+        if(enterScreen){
+            enterScreen.style.display = "none";
+        }
+
+    });
+
+}
