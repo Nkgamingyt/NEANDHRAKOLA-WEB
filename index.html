@@ -2,317 +2,191 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NEANDHRAKOLA 🍌</title>
-
-<link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>NEANDHRAKOLA 🍌 | Cozy Banana Community ✦ Japanese Aesthetic</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍌%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
-    
 <body>
 
-<!-- ENTER SCREEN -->
-
-<div id="enterScreen">
-
-    <div class="enter-box">
-
-        <img src="assets/logo.png" class="enter-logo">
-
-        <h3>NEANDHRAKOLA</h3>
-
-        <button id="enterBtn">
-            Enter Community
-        </button>
-
-    </div>
-
-</div>
-
-<!-- BACKGROUND VIDEO -->
-
-<video autoplay muted loop playsinline id="bgVideo">
-
-    <source
-    src="assets/background.mp4"
-    type="video/mp4">
-
+<!-- Background Video (Local Asset) -->
+<video class="background-video" autoplay loop muted playsinline>
+  <source src="assets/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
-<!-- MUSIC -->
+<!-- Falling Banana Petals Container -->
+<div id="bananaPetalsContainer"></div>
 
+<!-- Hidden Audio Element for Background Music (Local Asset) -->
 <audio id="bgMusic" loop>
-
-    <source
-    src="music/melody.mp3"
-    type="audio/mpeg">
-
+  <source src="music/melody.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MUSIC PANEL -->
-
-<div class="music-panel">
-
-    <button id="musicBtn">
-        🎵
-    </button>
-
-    <input
-    type="range"
-    id="volumeSlider"
-    min="0"
-    max="100"
-    value="50">
-
-</div>
-
-<nav>
-
-<div class="logo-box">
-<img src="assets/logo.png" alt="">
-</div>
-
-
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#premium">Premium</a></li>
-<li><a href="#ticket">Tickets</a></li>
-<li><a href="#join">Join</a></li>
-</ul>
-
-</nav>
-
-<header>
-
-<img src="assets/mascot.png" class="mascot">
-
-<div class="badge">
-🍌 Cozy Discord Community
-</div>
-
-<h1>
-<span>WELCOME TO</span>
-<span>NEANDHRAKOLA</span>
-</h1>
-
-<p>
-A cozy place filled with cute vibes,
-friendships, gaming and fun memories.
-</p>
-
-<div class="hero-buttons">
-
-<a href="https://discord.gg/3bfBE76NpJ" target="_blank" class="btn">
-Join Server
-</a>
-
-<button id="heroMusicBtn" class="btn">
-🎵 Music
+<!-- Music Player Button -->
+<button id="musicPlayerBtn" class="music-player-btn">
+  <i class="fas fa-play"></i>
 </button>
+
+<!-- Navigation Bar -->
+<div class="main-nav">
+  <div class="logo-area">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23fff064'/%3E%3Ctext x='50' y='70' text-anchor='middle' font-size='50' fill='%234a2e00'%3E🍌%3C/text%3E%3C/svg%3E" alt="logo">
+    <span>NEANDHRAKOLA</span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-btn active-nav" data-page="home"><i class="fas fa-home"></i> Home</button>
+    <button class="nav-btn" data-page="staff"><i class="fas fa-users"></i> Staff Team</button>
+    <button class="nav-btn" data-page="premium"><i class="fas fa-gem"></i> Premium</button>
+    <button class="nav-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact Us</button>
+  </div>
+</div>
+
+<!-- ========================= HOME PAGE ========================= -->
+<div id="homePage" class="page active-page">
+  <div class="container">
+    <div class="hero">
+      <img class="mascot-hero" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23fff3cf' rx='50'/%3E%3Ctext x='100' y='130' text-anchor='middle' font-size='100'%3E🍌%3C/text%3E%3C/svg%3E" alt="mascot">
+      <div class="badge">🍌 Cozy Discord Community</div>
+      <h1>WELCOME TO <span style="color:#f7b32b;">NEANDHRAKOLA</span></h1>
+      <p style="margin: 20px auto; max-width:600px; font-size:1.1rem;">A cozy place filled with cute vibes, friendships, gaming and fun memories.</p>
+      <div>
+        <a href="https://discord.gg/3bfBE76NpJ" target="_blank" class="btn"><i class="fab fa-discord"></i> Join Server</a>
+        <button id="homeMusicDemo" class="btn btn-outline"><i class="fas fa-music"></i> Chill Vibes</button>
+      </div>
+      <div class="discord-stats">
+        <span><i class="fas fa-users"></i> Members: <strong id="memberCountHome">187</strong></span>
+        <span><i class="fas fa-circle" style="color:#44ff44; font-size:0.7rem;"></i> Online: <strong id="onlineCountHome">112</strong></span>
+      </div>
+    </div>
+
+    <section id="aboutUsSection">
+      <div style="text-align:center;">
+        <h2 class="section-title">About Us</h2>
+      </div>
+      <div class="about-text">
+        <p>Welcome to NEANDHRAKOLA — your cozy little corner of Discord where good vibes, new friendships, and endless pookie energy come together! 💛🍌<br><br>
+        Whether you're here to chat, share memes, play games, join events, or simply relax after a long day, NEANDHRAKOLA is a warm and welcoming community for everyone. We focus on creating a friendly, drama-free environment where members can connect, have fun, and make lasting memories.<br><br>
+        ✨ What you'll find: 💬 Friendly active chats, 🎮 Gaming events, 😂 Memes & fun, 🎁 Giveaways, 🤝 Supportive members, 🍌 Peak banana-powered pookie vibes.<br><br>
+        Join us and become part of the NEANDHRAKOLA family — where every member is a pookie and every day is a good day! 💛🍌</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ========================= STAFF PAGE ========================= -->
+<div id="staffPage" class="page">
+  <div class="container">
+    <div style="text-align:center;">
+      <h2 class="section-title">Meet Our Staff Team</h2>
+      <p style="margin-bottom:2rem; font-size:1.1rem;">The bananas who keep the community safe & cozy 💛</p>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card"><div class="staff-icon">🍌👑</div><h3>Founder - King Pookie</h3><p>Community father, banana enthusiast</p></div>
+      <div class="staff-card"><div class="staff-icon">🍌💜</div><h3>Co-Founder - Queen Bee</h3><p>Event Manager & Vibes Guardian</p></div>
+      <div class="staff-card"><div class="staff-icon">🛡️🍌</div><h3>Mod Team Lead - Mellow</h3><p>Moderation & Member care</p></div>
+      <div class="staff-card"><div class="staff-icon">🎮🍌</div><h3>Event Manager - GamerPanda</h3><p>Game nights & tournaments</p></div>
+      <div class="staff-card"><div class="staff-icon">🎨🍌</div><h3>Media Artist - BananaBrush</h3><p>Emotes & graphics</p></div>
+      <div class="staff-card"><div class="staff-icon">🤖🍌</div><h3>Bot Dev - CodeMonkey</h3><p>Automation & tools</p></div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;"><p style="font-size:1rem;">✨ Dedicated staff working to keep NEANDHRAKOLA cozy & drama-free ✨</p></div>
+  </div>
+</div>
+
+<!-- ========================= PREMIUM PAGE ========================= -->
+<div id="premiumPage" class="page">
+  <div class="container">
+    <div style="text-align:center;">
+      <h2 class="section-title">Premium Membership</h2>
+      <p>Unlock exclusive roles, perks, and banana power! 🍌</p>
+    </div>
     
-</div>
-
-</header>
-
-<section id="about">
-
-<h1>
-<span>🌸 About Us</span>
-</h1>
-<p>
-Welcome to NEANDHRAKOLA — your cozy little corner of Discord where good vibes, new friendships,
- and endless pookie energy come together! 💛
-
-Whether you're here to chat, share memes, play games, join events, or simply relax after a long day, 
-NEANDHRAKOLA is a warm and welcoming community for everyone. We focus on creating a friendly, 
-drama-free environment where members can connect, have fun, and make lasting memories.
-
-✨ What you'll find:
-
-💬 Friendly and active chats
-🎮 Gaming and community events
-😂 Memes and fun activities
-🎁 Giveaways and special rewards
-🤝 Supportive and welcoming members
-🍌 Peak banana-powered pookie vibes
-
-Join us and become part of the NEANDHRAKOLA family
- — where every member is a pookie and every day is a good day! 💛🍌
-
-NEANDHRAKOLA — Cozy Community • Friendly People • Banana Vibes 🌼🍌✨
-</p>
-
-</section>
-
-<section id="premium">
-
-<h2>Premium Plans</h2>
-
-<div class="plans">
-
-<div class="plan">
-<h3>PLATINUM</h3>
-<footer>
-  - 🏷️ Fully Custom Role Name & Color
-
-  - 🤖 Mention Bot Reaction Access
-
-  - 💬 Mention Bot Auto Replies 
-
-  - 😊 External Emojis Access
-
-  - ⭐ Supporter role
-
-  - 🎉 Priority Event Participation
-
-  - 📞 Private platinum VC Access
-</footer>
-<h1>₹60</h1>
-<button onclick="selectReason('Premium Purchase - Starter')">
-Buy Now
-</button>
-</div>
-
-<div class="plan featured">
-<h3>PREMIUM</h3>
-<footer>
-    Ultimate Pookie Experience
-  
-  - 🏷️ Fully Custom Role Name & Color
-
-  - 👑 Premium Exclusive Role
-
-  - 📞 Private Premium VC Access
-  
-  - 🤖 Custom Mention Bot Reactions
-
-  - 💬 Mention Bot Auto Replies
-
-  - 🎭 Custom Role Icon
-
-  - 🎉 Access to Premium Giveaways
-
-  - 🛋️ Premium Lounge Channels
-
-  - 🚀 Highest Priority Support
-
-  - 🎁 Surprise Community Rewards
-
-  - - ⭐ Supporter role
-
-</footer>
-<h1>₹100</h1>
-<button onclick="selectReason('Premium Purchase - Premium')">
-Buy Now
-</button>
-</div>
-
-<div class="plan">
-<h3>ELITE</h3>
-<footer>
-  - 🎨 Custom Colored Role
-
-  - 🤖 Mention Bot Reaction Access 
-  
-  - 🔊 External Soundboard Access
-
-  - 😊 External Emojis Access
-</footer>
-<h1>₹30</h1>
-<button onclick="selectReason('Premium Purchase - Elite')">
-Buy Now
-</button>
-</div>
-
-</div>
-
-</section>
-
-<section id="ticket">
-
-<h1>    
-<span>Create Ticket</span>
-</h1>   
-
-<form id="ticketForm">
-
-<input type="text"
-id="username"
-placeholder="Discord ID [899554676532445214]"
-required>
-
-<select id="reason">
-
-<option>Premium Purchase</option>
-<option>Support</option>
-<option>Report Member</option>
-<option>Partnership</option>
-<option>Appeal</option>
-<option>Bug Report</option>
-
-</select>
-
-<textarea
-id="details"
-placeholder="Explain your issue..."
-required></textarea>
-
-<button type="submit">
-Create Ticket
-</button>
-
-</form>
-
-<div id="status"></div>
-
-</section>
-
-<section id="join">
-
-<span>💖 Join Our Family</span>
-
-<p>
-Become part of the NEANDHRAKOLA community today.
-</p>
-
-<div class="join-btn-wrapper">
-    <a href="https://discord.gg/3bfBE76NpJ"
-       target="_blank"
-       class="btn">
-       Join Discord
-    </a>
-</div>
-
-</section>
-
-<!-- DISCORD LIVE STATS -->
-<div class="discord-widget">
-
-    <div class="discord-title">
-        💬 Discord
+    <div class="plans-premium" id="premiumPlansContainer">
+      <div class="plan-card" data-plan-name="ELITE" data-plan-price="₹30" data-plan-id="elite">
+        <h3>✨ ELITE</h3>
+        <div class="plan-price">₹30</div>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 🎨 Custom Colored Role</li>
+          <li><i class="fas fa-check-circle"></i> 🤖 Mention Bot Reaction</li>
+          <li><i class="fas fa-check-circle"></i> 🔊 External Soundboard</li>
+          <li><i class="fas fa-check-circle"></i> 😊 External Emojis</li>
+        </ul>
+        <button class="btn select-plan-trigger" style="margin-top:12px;">Select Plan</button>
+      </div>
+      
+      <div class="plan-card" data-plan-name="PREMIUM" data-plan-price="₹100" data-plan-id="premium_main">
+        <h3>⭐ PREMIUM ⭐</h3>
+        <div class="plan-price">₹100</div>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 🏷️ Fully Custom Role Name/Color</li>
+          <li><i class="fas fa-check-circle"></i> 👑 Premium Exclusive Role</li>
+          <li><i class="fas fa-check-circle"></i> 📞 Private Premium VC</li>
+          <li><i class="fas fa-check-circle"></i> 🤖 Custom Mention Bot Reactions</li>
+          <li><i class="fas fa-check-circle"></i> 🎭 Custom Role Icon</li>
+          <li><i class="fas fa-check-circle"></i> 🎉 Premium Giveaways</li>
+          <li><i class="fas fa-check-circle"></i> ⭐ Supporter Role</li>
+        </ul>
+        <button class="btn select-plan-trigger" style="margin-top:12px;">Select Plan</button>
+      </div>
+      
+      <div class="plan-card" data-plan-name="PLATINUM" data-plan-price="₹60" data-plan-id="platinum">
+        <h3>💎 PLATINUM</h3>
+        <div class="plan-price">₹60</div>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 🏷️ Fully Custom Role</li>
+          <li><i class="fas fa-check-circle"></i> 🤖 Mention Bot Reactions</li>
+          <li><i class="fas fa-check-circle"></i> 💬 Auto Replies</li>
+          <li><i class="fas fa-check-circle"></i> ⭐ Supporter Role</li>
+          <li><i class="fas fa-check-circle"></i> 🎉 Priority Events</li>
+          <li><i class="fas fa-check-circle"></i> 📞 Platinum VC Access</li>
+        </ul>
+        <button class="btn select-plan-trigger">Select Plan</button>
+      </div>
     </div>
-
-    <div class="discord-stat">
-        👥 Members:
-        <span id="memberCount">0</span>
-    </div>
-
-    <div class="discord-stat">
-        🟢 Online:
-        <span id="onlineCount">0</span>
-    </div>
-
+  </div>
 </div>
 
-<footer>
-Made with 💛 by TEAM NEANDHRAKOLA
+<!-- ========================= CONTACT US PAGE ========================= -->
+<div id="contactPage" class="page">
+  <div class="container">
+    <div style="text-align:center;">
+      <h2 class="section-title">Contact Us</h2>
+      <p style="margin-bottom:1.5rem;">Need help, partnership, or support? Fill the form — we'll reply ASAP.</p>
+    </div>
+    <div class="contact-form">
+      <form id="contactTicketForm">
+        <input type="text" id="contactUsername" placeholder="Discord ID / Username" required>
+        <select id="contactReason" required>
+          <option value="Support">🛠️ Support</option>
+          <option value="Report Member">⚠️ Report Member</option>
+          <option value="Partnership">🤝 Partnership</option>
+          <option value="Appeal">⚖️ Appeal</option>
+          <option value="Bug Report">🐞 Bug Report</option>
+          <option value="General Inquiry">💬 General Inquiry</option>
+        </select>
+        <textarea id="contactMessage" rows="4" placeholder="Describe your issue / message ..." required></textarea>
+        <button type="submit" class="btn" style="width:100%;"><i class="fas fa-ticket-alt"></i> Send Ticket</button>
+        <div id="contactStatus" style="margin-top:16px; text-align:center;"></div>
+      </form>
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <p>✨ You can also join our Discord server for instant help ✨</p>
+      <a href="https://discord.gg/3bfBE76NpJ" target="_blank" class="btn"><i class="fab fa-discord"></i> Join Discord Server</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <i class="fas fa-heart" style="color:#2c2416;"></i> Made with 💛 by TEAM NEANDHRAKOLA • Cozy vibes & banana love 🍌
 </footer>
 
-<script src="script.js"></script>
+<div class="floating-banana">
+  <i class="fas fa-heart"></i>
+</div>
 
+<script src="js/script.js"></script>
 </body>
 </html>
